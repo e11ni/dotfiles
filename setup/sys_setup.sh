@@ -18,7 +18,7 @@ pacman -S --noconfirm linux-lts
 pacman -S --noconfirm linux-lts-headers
 
 cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
-sed -i 's/linux/linux-lts/g' /boot/loader/entries/arch-lts.conf
+sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
 sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 
 # Install desktop environment 
