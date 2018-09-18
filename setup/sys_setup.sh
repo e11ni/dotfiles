@@ -15,9 +15,5 @@ sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
 sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 
 # Install desktop environment 
-pacman -S --noconfirm xorg
-pacman -S --noconfirm lightdm lightdm-gtk-greeter
-pacman -S --noconfirm budgie-desktop
-echo "export XDG_CURRENT_DESKTOP=Budgie:GNOME" >> ~/.xinitrc
-echo "exec budgie-desktop" >> ~/.xinitrc
-ln -s /usr/lib/systemd/system/lightdm.service /etc/systemd/system/display-manager.service
+pacman -S --noconfirm sway
+
