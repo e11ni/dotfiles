@@ -2,13 +2,10 @@
 pacman -Syu --noconfirm
 
 # Install video drivers
-pacman -S --noconfirm mesa
-pacman -S --noconfirm xf86-video-intel
-pacman -S --noconfirm vulkan-intel
+pacman -S --noconfirm mesa vulkan-intel libva-intel-driver
 
 # Install latest kernel and update bootloader
-pacman -S --noconfirm linux-lts
-pacman -S --noconfirm linux-lts-headers
+pacman -S --noconfirm linux-lts linux-lts-headers
 
 cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
 sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
@@ -54,13 +51,16 @@ sudo pacman -S --noconfirm zsh-completions
 
 # Install cmd utils
 sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub
-sudo npm install -g tldr how-2
+sudo npm install -g tldr how-2 jshint
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
 
 # Install X utils
 sudo pacman -S --noconfirm meld code wireshark-qt
 yay -S --noconfirm copyq
+
+# Install JDK
+sudo pacman -S --noconfirm jdk10-openjdk
 
 # Config git
 git config --global user.name "Petr Maliarov"
@@ -72,10 +72,12 @@ mkdir ~/.tmux && mkdir ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install internet apps
-sudo pacman -S --noconfirm min telegram-desktop
-yay -S --noconfirm google-chrome whatsapp-web-desktop slack
+sudo pacman -S --noconfirm min telegram-desktop noto-fonts ttf-croscore
+yay -S --noconfirm google-chrome whatsapp-web-desktop slack chrome-remote-desktop
+sudo cp ~/.dotfiles/setup/fonts_local.conf /etc/fonts/local.conf
 
 # Install docker
 sudo pacman -S --noconfirm docker docker-compose
 sudo usermod -aG wheel petrmali
 sudo systemctl enable docker
+
