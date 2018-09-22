@@ -67,8 +67,10 @@ git config --global user.name "Petr Maliarov"
 git config --global user.email "petr.maliarov@gmail.com"
 
 # Install and config tmux
-sudo pacman -S --noconfirm tmux tmuxp
-mkdir ~/.tmux && mkdir ~/.tmux/plugins
+sudo pacman -S --noconfirm tmux tmuxp xclip
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+mkdir ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install internet apps
@@ -81,3 +83,4 @@ sudo pacman -S --noconfirm docker docker-compose
 sudo usermod -aG wheel petrmali
 sudo systemctl enable docker
 
+# Do not forget yadm sync
