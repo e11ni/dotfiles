@@ -23,8 +23,13 @@ usermod -aG wheel petrmali
 # Allow users from wheel group run commands using sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-# Install desktop environment 
+# Install Wayland Sway window manager 
 pacman -S --noconfirm sway
+
+# Install X i3 windox manager
+pacman -S --noconform xorg xorg-server xorg-xinit i3 archinux-wallpaper
+Xorg :0 -configure
+cp ~/xorg.conf.new /etc/X11/xorg.conf && rm ~/xorg.conf.new
 
 # Install some X utils
 pacman -Fy
@@ -56,7 +61,7 @@ yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
 
 # Install X utils
-sudo pacman -S --noconfirm meld code wireshark-qt
+sudo pacman -S --noconfirm meld code wireshark-qt feh
 yay -S --noconfirm copyq
 
 # Install JDK
