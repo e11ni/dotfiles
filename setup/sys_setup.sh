@@ -11,6 +11,10 @@ cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
 sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
 sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 
+# Refresh keys ad sync database
+pacman -Fy
+pacman-key --refresh-keys
+
 # Install vim
 pacman -S --noconfirm vim
 
@@ -31,12 +35,11 @@ pacman -S --noconform xorg xorg-server xorg-xinit i3 archinux-wallpaper
 Xorg :0 -configure
 cp ~/xorg.conf.new /etc/X11/xorg.conf && rm ~/xorg.conf.new
 
-# Install some X utils
-pacman -Fy
-pacman-key --refresh-keys
-pacman -S --noconfirm vlc libreoffice p7zip unrar tar rsync pinta conky
-pacman -S --noconfirm termite rofi
-yay -S --noconfirm ttf-iosevka-pack stacer
+# Install launcher
+pacman -S --noconfirm rofi
+
+# Install terminal emulator
+pacman -S --noconfirm termite adobe-source-code-pro-fonts
 
 # Install yay - aur helper written on Go
 git clone https://aur.archlinux.org/yay.git
@@ -55,13 +58,14 @@ sudo pacman -S --noconfirm powerline-fonts
 sudo pacman -S --noconfirm zsh-completions
 
 # Install cmd utils
-sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub
+sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
 sudo npm install -g tldr how-2 jshint
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
 
 # Install X utils
 sudo pacman -S --noconfirm meld code wireshark-qt feh
+sudo pacman -S --noconfirm vlc libreoffice pinta conky
 yay -S --noconfirm copyq
 
 # Install JDK
@@ -79,7 +83,7 @@ mkdir ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install internet apps
-sudo pacman -S --noconfirm min telegram-desktop noto-fonts ttf-croscore
+sudo pacman -S --noconfirm min telegram-desktop noto-fonts ttf-croscore otf-fira-code
 yay -S --noconfirm google-chrome whatsapp-web-desktop slack chrome-remote-desktop
 sudo cp ~/.dotfiles/setup/fonts_local.conf /etc/fonts/local.conf
 
