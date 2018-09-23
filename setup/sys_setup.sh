@@ -38,6 +38,9 @@ pacman -S --noconfirm rofi
 # Install terminal emulator
 pacman -S --noconfirm termite adobe-source-code-pro-fonts
 
+# Install audio utils
+sudo pacman -S --noconfirm pulseaudio pavucontrol
+
 # Install yay - aur helper written on Go
 git clone https://aur.archlinux.org/yay.git
 cd yay
