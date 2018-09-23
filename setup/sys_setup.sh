@@ -15,9 +15,6 @@ sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 pacman -Fy
 pacman-key --refresh-keys
 
-# Install vim
-pacman -S --noconfirm vim
-
 # Add user
 useradd petrmali
 passwd petrmali
@@ -27,7 +24,7 @@ usermod -aG wheel petrmali
 # Allow users from wheel group run commands using sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-# Install Wayland Sway window manager 
+# Install Wayland Sway window manager
 pacman -S --noconfirm sway
 
 # Install X i3 windox manager
@@ -49,8 +46,12 @@ cd ..
 rm -rf yay
 sudo ln -s /usr/bin/yay /usr/bin/yaourt
 
+# Install vim
+sudo pacman -S --noconfirm vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Install zsh
-pacman -S --noconfirm  zsh
+sudo pacman -S --noconfirm  zsh
 zsh
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -58,7 +59,7 @@ sudo pacman -S --noconfirm powerline-fonts
 sudo pacman -S --noconfirm zsh-completions
 
 # Install cmd utils
-sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
+sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync openssh
 sudo npm install -g tldr how-2 jshint
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
