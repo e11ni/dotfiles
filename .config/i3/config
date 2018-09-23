@@ -193,6 +193,10 @@ bar {
 default_border none
 gaps inner 2
 
+# Bindings
+bindsym $mod+z exec ~/.scripts/run-chrome.sh
+bindsym $mod+x exec ~/.scripts/run-code.sh
+
 # Set background wallpaper
 exec --no-startup-id feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-ekisho-carbonite.jpg
 
