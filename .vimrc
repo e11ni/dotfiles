@@ -37,11 +37,14 @@ highlight CursorLineNr ctermfg=87 ctermbg=237 cterm=bold
 
 " Highlight current line
 set cursorline
-highlight CursorLine ctermbg=60 cterm=bold
+highlight CursorLine ctermbg=60 cterm=none
 
 " Highlight line after textwidth
 set colorcolumn=101
 highlight ColorColumn ctermbg=95
+
+" Highlight search results
+highlight Search ctermbg=182
 
 " Toggle show hidden characters show on F5
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
