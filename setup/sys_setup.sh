@@ -36,6 +36,8 @@ cp ~/xorg.conf.new /etc/X11/xorg.conf && rm ~/xorg.conf.new
 pacman -S --noconfirm rofi
 
 # Install terminal emulator
+# https://github.com/thestinger/termite/blob/master/README.rst
+# https://wiki.archlinux.org/index.php/termite
 pacman -S --noconfirm termite adobe-source-code-pro-fonts
 
 # Install audio utils
