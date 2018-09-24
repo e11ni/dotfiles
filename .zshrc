@@ -1,5 +1,17 @@
 source ~/.bashrc
 
+# Run i3 in tty1
+if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty1 ]]; then
+  startx
+  exit 0
+fi
+
+# Run sway in tty5
+if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty5 ]]; then
+  sway
+  exit 0
+fi
+
 # Locale settings
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -22,8 +34,10 @@ export ZSH="/home/petrmali/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 if [[ -z $SSH_CONNECTION ]] && [[ -n $DISPLAY ]]; then
   ZSH_THEME="agnoster"
+  export COLOR256_AVAIL=1
 else
   ZSH_THEME="gentoo"
+  export COLOR256_AVAIL=0
 fi
 DEFAULT_USER=$USER
 
@@ -73,6 +87,11 @@ CASE_SENSITIVE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Run tmux by default, to run terminal without tmux run the following:
+# termite --exec='zsh'&
+# Always connect to old session if exist, to create new session run <C-a> :new<CR>
+export ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -150,16 +169,4 @@ alias c='d -e code'
 
 # Aliases and funcs
 function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}
-
-# Run sway in tty1
-if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty1 ]]; then
-  # sway
-  startx
-  exit 0
-fi
-
-# Run tmux
-if [[ -z "$TMUX" ]]; then
-  exec tmux
-fi
 

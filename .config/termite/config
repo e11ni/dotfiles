@@ -1,6 +1,6 @@
 [options]
 font = SourceCodePro 10
-
+scrollback_lines = 20000
 
 [colors]
 

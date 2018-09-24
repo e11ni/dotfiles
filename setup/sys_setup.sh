@@ -75,6 +75,9 @@ yay -S --noconfirm copyq
 # Install JDK
 sudo pacman -S --noconfirm jdk10-openjdk
 
+# Install Go and tools
+sudo pacman -S --noconfirm go go-tools
+
 # Config git
 git config --global user.name "Petr Maliarov"
 git config --global user.email "petr.maliarov@gmail.com"

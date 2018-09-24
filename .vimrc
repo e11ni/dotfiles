@@ -26,25 +26,12 @@ set undolevels=1000     " Number of undo levels
 set backspace=indent,eol,start  " Backspace behaviour
 
 " Enable lightline plugin
-set laststatus=2
+if $COLOR256_AVAIL
+  set laststatus=2
+endif
 
 " Toggle Tree on C-o
 map <C-o> :NERDTreeToggle<CR>
-
-" Highlight line numbers
-highlight LineNr ctermfg=grey ctermbg=237
-highlight CursorLineNr ctermfg=87 ctermbg=237 cterm=bold
-
-" Highlight current line
-set cursorline
-highlight CursorLine ctermbg=60 cterm=none
-
-" Highlight line after textwidth
-set colorcolumn=101
-highlight ColorColumn ctermbg=95
-
-" Highlight search results
-highlight Search ctermbg=182
 
 " Toggle show hidden characters show on F5
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
@@ -60,17 +47,38 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Plugins section
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/emmet-vim'
-Plug 'w0rp/ale'
-Plug 'dracula/vim'
-Plug 'myusuf3/numbers.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-surround'
+  Plug 'scrooloose/nerdtree'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'w0rp/ale'
+  Plug 'dracula/vim'
+  Plug 'myusuf3/numbers.vim'
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+" Set colorscheme
+let g:dracula_italic = 0
+colorscheme dracula
+highlight Normal ctermbg=None
+
+" Highlight line numbers
+highlight LineNr ctermfg=grey ctermbg=237
+highlight CursorLineNr ctermfg=87 ctermbg=237 cterm=bold
+
+" Highlight current line
+set cursorline
+highlight CursorLine ctermbg=234 cterm=none
+
+" Highlight line after textwidth
+set colorcolumn=101
+highlight ColorColumn ctermbg=95
+
+" Highlight search results
+highlight Search ctermbg=182
 
