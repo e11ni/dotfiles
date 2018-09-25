@@ -11,9 +11,12 @@ cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
 sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
 sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 
-# Refresh keys ad sync database
+# Refresh keys and sync database
 pacman -Fy
 pacman-key --refresh-keys
+
+# Enable ssh
+systemctl enable sshd.socket
 
 # Add user
 useradd petrmali
@@ -79,6 +82,7 @@ sudo pacman -S --noconfirm jdk10-openjdk
 
 # Install Go and tools
 sudo pacman -S --noconfirm go go-tools
+go get -v github.com/ramya-rao-a/go-outline
 
 # Config git
 git config --global user.name "Petr Maliarov"

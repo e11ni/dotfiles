@@ -36,7 +36,7 @@ if [[ -z $SSH_CONNECTION ]] && [[ -n $DISPLAY ]]; then
   ZSH_THEME="agnoster"
   export COLOR256_AVAIL=1
 else
-  ZSH_THEME="gentoo"
+  ZSH_THEME="af-magic"
   export COLOR256_AVAIL=0
 fi
 DEFAULT_USER=$USER
