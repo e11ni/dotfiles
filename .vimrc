@@ -72,7 +72,7 @@ call plug#end()
 
 " Set colorscheme
 colorscheme base16-chalk
-highlight Error ctermfg=166
+highlight Error ctermfg=white
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
@@ -81,6 +81,10 @@ let g:lightline = {
 highlight LineNr ctermfg=246 ctermbg=236
 highlight CursorLineNr ctermfg=37 ctermbg=236 cterm=bold
 
+" Highlight current line
+set cursorline
+highlight CursorLine ctermbg=235 cterm=none
+
 " Highlight selected in visual mode with inverted color
 if !$COLOR256_AVAIL
   highlight Comment ctermfg=darkblue
@@ -88,10 +92,6 @@ if !$COLOR256_AVAIL
 else
   highlight Visual ctermbg=237
 endif
-
-" Highlight current line
-set cursorline
-highlight CursorLine ctermbg=235 cterm=none
 
 " Highlight line after textwidth
 set colorcolumn=101
