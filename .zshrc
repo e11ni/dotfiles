@@ -32,11 +32,11 @@ export ZSH="/home/petrmali/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-if [[ -z $SSH_CONNECTION ]] && [[ -n $DISPLAY ]]; then
+if [[ -n $DISPLAY ]]; then
   ZSH_THEME="agnoster"
   export COLOR256_AVAIL=1
 else
-  ZSH_THEME="af-magic"
+  ZSH_THEME="gentoo"
   export COLOR256_AVAIL=0
 fi
 DEFAULT_USER=$USER
@@ -91,7 +91,7 @@ CASE_SENSITIVE="true"
 # Run tmux by default, to run terminal without tmux run the following:
 # termite --exec='zsh'&
 # Always connect to old session if exist, to create new session run <C-a> :new<CR>
-export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*

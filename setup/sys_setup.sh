@@ -15,9 +15,6 @@ sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
 pacman -Fy
 pacman-key --refresh-keys
 
-# Enable ssh
-systemctl enable sshd.socket
-
 # Add user
 useradd petrmali
 passwd petrmali
@@ -66,8 +63,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 sudo pacman -S --noconfirm powerline-fonts
 sudo pacman -S --noconfirm zsh-completions
 
+# Install ssh and config xforwarding
+sudo pacman -S --noconfirm  openssh xorg-xauth xorg-xhost
+sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
+systemctl enable sshd.socket
+
 # Install cmd utils
-sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync openssh
+sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
 sudo npm install -g tldr how-2 jshint
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
