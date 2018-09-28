@@ -15,7 +15,7 @@ cpu_usage {
 }
 
 disk "/" {
-    format = "disk: %percentage_used"
+    format = "disk: %used/%avail (%percentage_used) used"
 }
 
 ethernet eno1 {
