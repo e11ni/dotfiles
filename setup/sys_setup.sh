@@ -86,6 +86,13 @@ sudo pacman -S --noconfirm jdk10-openjdk
 sudo pacman -S --noconfirm go go-tools
 go get -v github.com/ramya-rao-a/go-outline
 
+# Install python and tools
+sudo pacman -S --noconfirm python python-pip
+sudo pip install pep8 pylint
+
+# Install debug tools
+sudo pacman -S --noconfirm gdb valgrind strace htop
+
 # Config git
 git config --global user.name "Petr Maliarov"
 git config --global user.email "petr.maliarov@gmail.com"

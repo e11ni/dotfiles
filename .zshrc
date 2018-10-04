@@ -103,8 +103,10 @@ plugins=(
   cabal
   common-aliases
   docker
+  docker-compose
   dotenv
   git
+  go
   httpie
   mvn
   npm
