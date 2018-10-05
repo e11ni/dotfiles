@@ -69,8 +69,8 @@ sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
 systemctl enable sshd.socket
 
 # Install cmd utils
-sudo pacman -S --noconfirm  fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
-sudo npm install -g tldr how-2 jshint
+sudo pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
+sudo npm install -g tldr how-2
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
 
@@ -81,6 +81,9 @@ yay -S --noconfirm copyq
 
 # Install JDK
 sudo pacman -S --noconfirm jdk10-openjdk
+
+# Install JS tools
+sudo pacman -S --noconfirm jshint
 
 # Install Go and tools
 sudo pacman -S --noconfirm go go-tools
