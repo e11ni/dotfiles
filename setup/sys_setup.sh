@@ -95,6 +95,7 @@ sudo pip install pep8 pylint
 
 # Install debug tools
 sudo pacman -S --noconfirm gdb valgrind strace htop
+sudo pacman -S --noconfirm xterm
 
 # Config git
 git config --global user.name "Petr Maliarov"
