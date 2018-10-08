@@ -201,5 +201,5 @@ bindsym $mod+x exec ~/.scripts/run-code.sh
 exec --no-startup-id feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-ekisho-carbonite.jpg
 
 # Set keyboard params
-exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle"
+exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle"
 
