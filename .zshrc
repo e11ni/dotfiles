@@ -1,4 +1,4 @@
-source ~/.bashrc
+source ~/.bashrc # TODO: remove
 
 # Run i3 in tty1
 if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty1 ]]; then
