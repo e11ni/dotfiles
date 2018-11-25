@@ -91,7 +91,7 @@ go get -v github.com/ramya-rao-a/go-outline
 
 # Install python and tools
 sudo pacman -S --noconfirm python python-pip
-sudo pip install pep8 pylint
+sudo pip install pep8 pylint rope
 
 # Install debug tools
 sudo pacman -S --noconfirm gdb valgrind strace htop
