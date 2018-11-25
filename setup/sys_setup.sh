@@ -97,10 +97,6 @@ sudo pip install pep8 pylint
 sudo pacman -S --noconfirm gdb valgrind strace htop
 sudo pacman -S --noconfirm xterm
 
-# Config git
-git config --global user.name "Petr Maliarov"
-git config --global user.email "petr.maliarov@gmail.com"
-
 # Install and config tmux
 sudo pacman -S --noconfirm tmux tmuxp xclip
 git clone https://github.com/gpakosz/.tmux.git
