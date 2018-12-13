@@ -115,3 +115,4 @@ sudo usermod -aG wheel petrmali
 sudo systemctl enable docker
 
 # Do not forget yadm sync
+# TODO: Install mediainfo ffmpeg
