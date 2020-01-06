@@ -1,4 +1,10 @@
 # dotfiles
+## Dell XPS 13
+To install linux from USB do the following steps in BIOS:
+- enable boot from Thunderbolt
+- disable Security Boot
+- disable RAID
+
 ## Install Arch Linux scratches
 Network setup
 - ethernet
