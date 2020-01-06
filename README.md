@@ -1,6 +1,6 @@
 # dotfiles
 ## Install Arch Linux scratches
-Network setup
+Network setup ethernet
 ```sh
 ip link set lo up
 ip link set eno1 up
