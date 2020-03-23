@@ -7,9 +7,10 @@ pacman -S --noconfirm mesa vulkan-intel libva-intel-driver
 # Install latest kernel and update bootloader
 pacman -S --noconfirm linux-lts linux-lts-headers
 
-cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
-sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
-sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
+# cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-lts.conf
+# sed -i 's/-linux/-linux-lts/g' /boot/loader/entries/arch-lts.conf
+# sed -i 's/arch/arch-lts/g' /boot/loader/loader.conf
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # Refresh keys and sync database
 pacman -Fy
