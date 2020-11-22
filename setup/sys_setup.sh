@@ -70,7 +70,7 @@ sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
 systemctl enable sshd.socket
 
 # Install cmd utils
-sudo pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync
+sudo pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync mediainfo ffmpeg
 sudo npm install -g tldr how-2
 yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
 go get -u github.com/nishanths/license
@@ -78,13 +78,12 @@ go get -u github.com/nishanths/license
 # Install X utils
 sudo pacman -S --noconfirm meld code wireshark-qt feh
 sudo pacman -S --noconfirm vlc libreoffice pinta conky
-yay -S --noconfirm copyq
 
 # Install JDK
 sudo pacman -S --noconfirm jdk10-openjdk
 
 # Install JS tools
-sudo pacman -S --noconfirm jshint
+sudo npm install -g jshint
 
 # Install Go and tools
 sudo pacman -S --noconfirm go go-tools
@@ -107,7 +106,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install internet apps
 sudo pacman -S --noconfirm min telegram-desktop noto-fonts ttf-croscore otf-fira-code
-yay -S --noconfirm google-chrome whatsapp-web-desktop slack chrome-remote-desktop
+yay -S --noconfirm google-chrome slack chrome-remote-desktop
 sudo cp ~/.dotfiles/setup/fonts_local.conf /etc/fonts/local.conf
 
 # Install docker
@@ -116,4 +115,3 @@ sudo usermod -aG wheel petrmali
 sudo systemctl enable docker
 
 # Do not forget yadm sync
-# TODO: Install mediainfo ffmpeg

@@ -1,14 +1,14 @@
 source ~/.bashrc # TODO: remove
 
-# Run i3 in tty1
+# Run X in tty1
 if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty1 ]]; then
   startx
   exit 0
 fi
 
-# Run sway in tty5
+# Run i3 in tty5
 if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty5 ]]; then
-  sway
+  i3
   exit 0
 fi
 
@@ -106,7 +106,7 @@ plugins=(
   docker-compose
   dotenv
   git
-  go
+  golang
   httpie
   mvn
   npm

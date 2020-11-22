@@ -53,7 +53,7 @@ bindsym $mod+d exec $menu
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Lock desktop
-bindsym $mod+Print exec i3lock
+bindsym $mod+Print exec "i3lock -c 000000"
 
 # Desktop wallpaper
 
@@ -203,3 +203,5 @@ exec --no-startup-id feh --bg-scale /usr/share/archlinux/wallpaper/archlinux-eki
 # Set keyboard params
 exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle"
 
+# HiDPI setting
+exec xrandr --dpi 220
