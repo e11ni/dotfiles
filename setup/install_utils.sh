@@ -20,7 +20,7 @@ git clone https://aur.archlinux.org/yay.git && \
 
 # Install yadm
 yay -S --noconfirm yadm-git
-# yadm clone https://github.com/e11ni/dotfiles.git
+yadm clone https://github.com/e11ni/dotfiles.git
 
 # Install more utils
 sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils docker docker-compose
