@@ -295,7 +295,7 @@ set -g history-limit 50000
 
 # binings
 unbind _
-bind \ split-window -h
+bind \\ split-window -h
 
 # List of plugins
 # set -g @plugin 'tmux-plugins/tpm'

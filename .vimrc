@@ -71,10 +71,11 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Set colorscheme
-colorscheme base16-chalk
-highlight Error ctermfg=white
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+autocmd vimenter * ++nested colorscheme gruvbox
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'seoul256',
       \ }
 
 " Highlight line numbers
@@ -83,15 +84,10 @@ highlight CursorLineNr ctermfg=37 ctermbg=236 cterm=bold
 
 " Highlight current line
 set cursorline
-highlight CursorLine ctermbg=235 cterm=none
+highlight CursorLine ctermbg=237 cterm=none
 
 " Highlight selected in visual mode with inverted color
-if !$COLOR256_AVAIL
-  highlight Comment ctermfg=darkblue
-  highlight Visual cterm=reverse ctermbg=black
-else
-  highlight Visual ctermbg=237
-endif
+highlight Visual ctermbg=237
 
 " Highlight line after textwidth
 set colorcolumn=101

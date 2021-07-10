@@ -1,4 +1,6 @@
+#!/bin/bash
 # Update system
+set -e
 pacman -Syu --noconfirm
 
 # Install video drivers
@@ -13,8 +15,7 @@ pacman -S --noconfirm linux-lts linux-lts-headers
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Refresh keys and sync database
-pacman -Fy
-pacman-key --refresh-keys
+pacman -Fy && pacman-key --refresh-keys
 
 # Add user
 useradd petrmali
@@ -24,9 +25,6 @@ usermod -aG wheel petrmali
 
 # Allow users from wheel group run commands using sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
-
-# Install Wayland Sway window manager
-pacman -S --noconfirm sway
 
 # Install X i3 windox manager
 pacman -S --noconform xorg xorg-server xorg-xinit i3 archinux-wallpaper
@@ -44,65 +42,13 @@ pacman -S --noconfirm termite adobe-source-code-pro-fonts
 # Install audio utils
 sudo pacman -S --noconfirm pulseaudio pavucontrol
 
-# Install yay - aur helper written on Go
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-cd ..
-rm -rf yay
-sudo ln -s /usr/bin/yay /usr/bin/yaourt
-
-# Install vim
-sudo pacman -S --noconfirm vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Install zsh
-sudo pacman -S --noconfirm  zsh
-zsh
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo pacman -S --noconfirm powerline-fonts
-sudo pacman -S --noconfirm zsh-completions
-
-# Install ssh and config xforwarding
-sudo pacman -S --noconfirm  openssh xorg-xauth xorg-xhost
+# Install and config xforwarding
+sudo pacman -S --noconfirm xorg-xauth xorg-xhost
 sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
-systemctl enable sshd.socket
-
-# Install cmd utils
-sudo pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie hub p7zip unrar tar rsync mediainfo ffmpeg
-sudo npm install -g tldr how-2
-yay -S --noconfirm yadm-git lf-git lnav-git doctoc pet-git ctop
-go get -u github.com/nishanths/license
 
 # Install X utils
-sudo pacman -S --noconfirm meld code wireshark-qt feh
+sudo pacman -S --noconfirm code wireshark-qt feh
 sudo pacman -S --noconfirm vlc libreoffice pinta conky
-
-# Install JDK
-sudo pacman -S --noconfirm jdk10-openjdk
-
-# Install JS tools
-sudo npm install -g jshint
-
-# Install Go and tools
-sudo pacman -S --noconfirm go go-tools
-go get -v github.com/ramya-rao-a/go-outline
-
-# Install python and tools
-sudo pacman -S --noconfirm python python-pip
-sudo pip install pep8 pylint rope
-
-# Install debug tools
-sudo pacman -S --noconfirm gdb valgrind strace htop
-sudo pacman -S --noconfirm xterm
-
-# Install and config tmux
-sudo pacman -S --noconfirm tmux tmuxp xclip
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-mkdir ~/.tmux/plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install internet apps
 sudo pacman -S --noconfirm min telegram-desktop noto-fonts ttf-croscore otf-fira-code
@@ -110,7 +56,6 @@ yay -S --noconfirm google-chrome slack chrome-remote-desktop
 sudo cp ~/.dotfiles/setup/fonts_local.conf /etc/fonts/local.conf
 
 # Install docker
-sudo pacman -S --noconfirm docker docker-compose
 sudo usermod -aG wheel petrmali
 sudo systemctl enable docker
 

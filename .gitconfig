@@ -1,14 +1,5 @@
 [user]
 	name = Petr Maliarov
 	email = petr.maliarov@gmail.com
-
-[diff]
-	    tool = meld
-[difftool]
-	    prompt = false
-[difftool "meld"]
-	    cmd = meld "$LOCAL" "$REMOTE"
-[merge]
-	    tool = meld
-[mergetool "meld"]
-	    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[core]
+	editor = /usr/bin/vim

@@ -1,8 +1,8 @@
 #!/bin/bash
+set -e
 
-# Update and refresh keys
-sudo -E pacman -Syyu --noconfirm && pacman-db-upgrade
-sudo -E pacman -Fy && pacman-key --refresh-keys
+# Update base
+sudo -E pacman -Syyu --noconfirm && sudo -E pacman-db-upgrade
 
 # Install git
 sudo -E pacman -S --noconfirm git
@@ -20,43 +20,48 @@ git clone https://aur.archlinux.org/yay.git && \
 
 # Install yadm
 yay -S --noconfirm yadm-git
+# yadm clone https://github.com/e11ni/dotfiles.git
+
+# Install more utils
+sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils docker docker-compose
+sudo -E npm install -g npm
+sudo -E npm install -g tldr how-2 editorconfig
+yay -S --noconfirm doctoc pet-bin ctop-bin
 
 # Install vim
 sudo -E pacman -S --noconfirm vim
+git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+dos2unix .vimrc
+vim +'PlugInstall --sync' +qa > /dev/null
 
 # Install zsh
 sudo -E pacman -S --noconfirm zsh
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 sudo -E pacman -S --noconfirm powerline-fonts
 sudo -E pacman -S --noconfirm zsh-completions
-
-# Install and configure ssh
-sudo -E pacman -S --noconfirm openssh
-systemctl enable sshd.socket
-
-# Install more utils
-sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc trash-cli jq httpie p7zip tar rsync mediainfo ffmpeg
-npm install -g tldr how-2
-yay -S --noconfirm yadm-git lnav-git doctoc pet-git ctop
+sudo -E chsh -s /bin/zsh
+dos2unix .zshrc
+git clone https://github.com/zplug/zplug ~/.zplug
+zsh -c "source ~/.zplug/init.zsh && zplug update"
 
 # Install and config tmux
 sudo -E pacman -S --noconfirm tmux tmuxp xclip
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
-mkdir ~/.tmux/plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+mkdir ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+dos2unix .tmux.conf.local
+~/.tmux/plugins/tpm/bin/install_plugins
 
 # Install JDK
-sudo -E pacman -S --noconfirm jdk10-openjdk
+sudo -E pacman -S --noconfirm jdk-openjdk
 
 # Install JS tools
-npm install -g jshint
+sudo -E npm install -g jshint
 
 # Install debug tools
 sudo -E pacman -S --noconfirm gdb valgrind strace htop
 
 # Install python and tools
 sudo -E pacman -S --noconfirm python python-pip
-sudo -E pip install pep8 pylint rope
+sudo -E pip install pep8 flake8 pylint rope

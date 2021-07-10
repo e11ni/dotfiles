@@ -1,17 +1,5 @@
 source ~/.bashrc # TODO: remove
 
-# Run X in tty1
-if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty1 ]]; then
-  startx
-  exit 0
-fi
-
-# Run i3 in tty5
-if [[ -z $DISPLAY ]] &&  [[ $(tty) = /dev/tty5 ]]; then
-  i3
-  exit 0
-fi
-
 # Locale settings
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -32,14 +20,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-if [[ -n $DISPLAY ]]; then
-  ZSH_THEME="agnoster"
-  export COLOR256_AVAIL=1
-else
-  ZSH_THEME="gentoo"
-  export COLOR256_AVAIL=0
-fi
-DEFAULT_USER=$USER
+ZSH_THEME="agnoster"
+DEFAULT_USER=`whoami`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,7 +81,6 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  archlinux
   cabal
   common-aliases
   docker
@@ -115,6 +96,13 @@ plugins=(
   vscode
   web-search
 )
+
+DISTR=$(cat /etc/*-release | awk -F "=" '/^ID/ {print $2}')
+if [[ $DISTR == "arch" ]]; then
+    plugins+=(archlinux)
+elif [[ $DISTR == "ubuntu" ]]; then
+    plugins+=(ubuntu)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -171,4 +159,3 @@ alias c='d -e code'
 
 # Aliases and funcs
 function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}
-
