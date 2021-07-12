@@ -1,4 +1,4 @@
-source ~/.bashrc # TODO: remove
+export TERM=xterm-256color
 
 # Locale settings
 export LANG=en_US.UTF-8
