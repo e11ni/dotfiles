@@ -10,6 +10,9 @@ sudo -E pacman -S --noconfirm git
 # Install go and tools
 sudo -E pacman -S --noconfirm go go-tools
 
+# Install essentials
+sudo -E pacman -S --noconfirm base-devel
+
 # Install yay - aur helper written on Go
 git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
@@ -23,7 +26,7 @@ yay -S --noconfirm yadm-git
 yadm clone https://github.com/e11ni/dotfiles.git
 
 # Install more utils
-sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils docker docker-compose
+sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils alsa-utils docker docker-compose
 sudo -E npm install -g npm
 sudo -E npm install -g tldr how-2 editorconfig
 yay -S --noconfirm doctoc pet-bin ctop-bin
