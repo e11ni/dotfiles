@@ -27,7 +27,7 @@ usermod -aG wheel petrmali
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Install X i3 windox manager
-pacman -S --noconform xorg xorg-server xorg-xinit i3 archinux-wallpaper
+pacman -S --noconform xorg xorg-server xorg-xinit i3 archlinux-wallpaper
 Xorg :0 -configure
 cp ~/xorg.conf.new /etc/X11/xorg.conf && rm ~/xorg.conf.new
 

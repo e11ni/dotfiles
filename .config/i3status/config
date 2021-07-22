@@ -4,11 +4,22 @@ general {
         interval = 5
 }
 
+order += "volume master"
+order += "wireless wlan0"
+order += "ethernet eth0"
+order += "ethernet eno0"
 order += "ethernet eno1"
 order += "disk /"
 order += "cpu_usage"
 order += "load"
 order += "tztime local"
+
+volume master {
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	format = "volume: %volume "
+}
 
 cpu_usage {
         format = "CPU: %usage"
@@ -18,10 +29,27 @@ disk "/" {
     format = "disk: %used/%avail (%percentage_used) used"
 }
 
+wireless wlan0 {
+	format_up = " W: (%quality at %essid) %ip "
+	format_down = ""
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "eth0: %ip (%speed)"
+        format_down = ""
+}
+
+ethernet eno0 {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "eno0: %ip (%speed)"
+        format_down = ""
+}
+
 ethernet eno1 {
         # if you use %speed, i3status requires the cap_net_admin capability
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = "eno1: %ip (%speed)"
+        format_down = ""
 }
 
 tztime local {
