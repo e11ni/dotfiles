@@ -26,7 +26,7 @@ yay -S --noconfirm yadm-git
 yadm clone https://github.com/e11ni/dotfiles.git
 
 # Install more utils
-sudo -E pacman -S --noconfirm fzf fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils alsa-utils docker docker-compose
+sudo -E pacman -S --noconfirm fzf gawk clipster fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils alsa-utils docker docker-compose
 sudo -E npm install -g npm
 sudo -E npm install -g tldr how-2 editorconfig
 yay -S --noconfirm doctoc pet-bin ctop-bin
@@ -43,7 +43,7 @@ sudo -E pacman -S --noconfirm zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 sudo -E pacman -S --noconfirm powerline-fonts
 sudo -E pacman -S --noconfirm zsh-completions
-sudo -E chsh -s /bin/zsh
+sudo -E chsh -s $(which zsh)
 dos2unix .zshrc
 git clone https://github.com/zplug/zplug ~/.zplug
 zsh -c "source ~/.zplug/init.zsh && zplug update"
