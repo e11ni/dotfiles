@@ -91,7 +91,7 @@ bindsym $mod+backslash split h
 bindsym $mod+minus split v
 
 # shortcut to selection widget (primary)
-bindsym $mod+v exec ./roficlip
+bindsym $mod+v exec roficlip
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
