@@ -17,7 +17,7 @@ set $up k
 set $right l
 
 # Set terminal emulator
-set $term termite
+set $term kitty
 # Set launcher
 set $menu rofi -show run
 
