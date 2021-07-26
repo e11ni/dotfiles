@@ -43,7 +43,7 @@ sudo -E pacman -S --noconfirm zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 sudo -E pacman -S --noconfirm powerline-fonts
 sudo -E pacman -S --noconfirm zsh-completions
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 dos2unix .zshrc
 git clone https://github.com/zplug/zplug ~/.zplug
 zsh -c "source ~/.zplug/init.zsh && zplug update"
