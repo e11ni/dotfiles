@@ -210,7 +210,7 @@ exec --no-startup-id feh --bg-scale /usr/share/backgrounds/archlinux/awesome.png
 exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle"
 
 # HiDPI setting
-exec xrandr --dpi 220
+exec --no-startup-id xrandr --dpi 220
 
 # Enable floating for open dialogs
 for_window [window_role="pop-up"] floating enable
