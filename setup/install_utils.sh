@@ -58,7 +58,7 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 mkdir ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 dos2unix .tmux.conf.local
-~/.tmux/plugins/tpm/bin/install_plugins
+bash -c "~/.tmux/plugins/tpm/bin/install_plugins"
 
 # Install JDK
 sudo -E pacman -S --noconfirm jdk-openjdk
