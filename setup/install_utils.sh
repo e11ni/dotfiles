@@ -25,8 +25,12 @@ git clone https://aur.archlinux.org/yay.git && \
 yay -S --noconfirm yadm-git
 yadm clone https://github.com/e11ni/dotfiles.git
 
+# Install python and tools
+sudo -E pacman -S --noconfirm python python-pip
+sudo -E pip install pep8 flake8 pylint rope
+
 # Install more utils
-sudo -E pacman -S --noconfirm fzf gawk fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils alsa-utils docker docker-compose networkmanager mpc
+sudo -E pacman -S --noconfirm fzf gawk fasd the_silver_searcher npm pandoc jq httpie p7zip tar rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils alsa-utils docker docker-compose networkmanager
 sudo -E npm install -g npm
 sudo -E npm install -g tldr how-2 editorconfig
 yay -S --noconfirm doctoc pet-bin ctop-bin clipster
@@ -64,7 +68,3 @@ sudo -E npm install -g jshint
 
 # Install debug tools
 sudo -E pacman -S --noconfirm gdb valgrind strace htop
-
-# Install python and tools
-sudo -E pacman -S --noconfirm python python-pip
-sudo -E pip install pep8 flake8 pylint rope
