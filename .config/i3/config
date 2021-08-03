@@ -91,7 +91,7 @@ bindsym $mod+backslash split h
 bindsym $mod+minus split v
 
 # shortcut to selection widget (primary)
-bindsym $mod+v exec roficlip
+bindsym $mod+v exec "roficlip; xdotool key Shift+Insert"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -184,24 +184,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    position top
-    status_command i3status
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-
 default_border none
 gaps inner 2
 
 # Bindings
-bindsym $mod+z exec ~/.scripts/run-chrome.sh
+bindsym $mod+z exec ~/.scripts/run-browser.sh
 bindsym $mod+x exec ~/.scripts/run-code.sh
+
+# Launch status bar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Launch dunst - notification daemon
+exec --no-startup-id dunst
 
 # Set background wallpaper
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/archlinux/awesome.png
