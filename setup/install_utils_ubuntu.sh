@@ -58,7 +58,7 @@ dos2unix .tmux.conf.local
 bash "~/.tmux/plugins/tpm/bin/install_plugins"
 
 # Install JDK
-sudo -E apt-get install -y jdk-openjdk
+sudo -E apt-get install -y default-jdk
 
 # Install JS tools
 sudo -E npm install -g jshint
