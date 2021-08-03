@@ -23,8 +23,8 @@
 foreground = ${xrdb:foreground:#fff}
 background = ${xrdb:background:#000}
 
-;  _                    
-; | |__   __ _ _ __ ___ 
+;  _
+; | |__   __ _ _ __ ___
 ; | '_ \ / _` | '__/ __|
 ; | |_) | (_| | |  \__ \
 ; |_.__/ \__,_|_|  |___/
@@ -55,7 +55,7 @@ font-3=font\-logos:size=16;2
 font-4=FontAwesome5Brands:size=16;1
 font-5=IPAGothic:size=14;3
 
-modules-right = mpd pulseaudio time powermenu
+modules-right = pulseaudio time powermenu
 
 ; i3
 modules-left = launcher i3 xwindow
@@ -71,12 +71,12 @@ wm-restack = i3
 ; override-redirect = false
 
 
-;                      _       _           
-;  _ __ ___   ___   __| |_   _| | ___  ___ 
+;                      _       _
+;  _ __ ___   ___   __| |_   _| | ___  ___
 ; | '_ ` _ \ / _ \ / _` | | | | |/ _ \/ __|
 ; | | | | | | (_) | (_| | |_| | |  __/\__ \
 ; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
-                                         
+
 [module/launcher]
 type=custom/text
 content = 
@@ -96,7 +96,7 @@ click-left = kitty -e yay -Syu
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:75:...%
-label-empty = Empty 
+label-empty = Empty
 label-empty-font = 2
 label-font = 2
 format-margin = 4
@@ -207,19 +207,19 @@ ramp-volume-1 = ""
 ramp-volume-2 = ""
 
 
-label-muted = " muted"   
+label-muted = " muted"
 label-muted-background = ${colors.background}
 label-muted-padding = 2
 
-[module/mpd]
-type = custom/script
-exec = mpc status
-format-margin = 4
-format = "    <label>"
-label = %output:1:65:...%
-tail = true
-interval = 1
-click-left = mpc toggle
+;[module/mpd]
+;type = custom/script
+;exec = mpc status
+;format-margin = 4
+;format = "    <label>"
+;label = %output:1:65:...%
+;tail = true
+;interval = 1
+;click-left = mpc toggle
 
 [module/temperature]
 type = internal/temperature
