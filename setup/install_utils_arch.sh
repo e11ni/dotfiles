@@ -58,18 +58,13 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 mkdir ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 dos2unix .tmux.conf.local
-echo debug1
-bash "~/.tmux/plugins/tpm/bin/install_plugins"
-echo debug2
+bash ~/.tmux/plugins/tpm/bin/install_plugins
 
 # Install JDK
 sudo -E pacman -S --noconfirm jdk-openjdk
-echo debug3
 
 # Install JS tools
 sudo -E npm install -g jshint
-echo debug4
 
 # Install debug tools
 sudo -E pacman -S --noconfirm gdb valgrind strace htop
-echo debug5
