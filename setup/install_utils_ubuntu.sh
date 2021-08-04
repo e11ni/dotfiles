@@ -22,7 +22,7 @@ sudo -E apt-get install -y python python-pip
 sudo -E pip install pep8 flake8 pylint rope
 
 # Install more utils
-sudo -E apt-get install -y fzf gawk fasd silversearcher-ag npm pandoc jq httpie p7zip rsync openssh dos2unix mediainfo ffmpeg lnav xdg-utils docker docker-compose
+sudo -E apt-get install -y fzf gawk fasd silversearcher-ag npm pandoc jq httpie p7zip rsync openssh-client openssh-server dos2unix mediainfo ffmpeg lnav xdg-utils docker docker-compose
 sudo -E npm install -g npm
 sudo -E npm install -g tldr how-2 editorconfig doctoc
 curl -fLo /tmp/pet_0.3.0_linux_amd64.deb https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
@@ -43,7 +43,6 @@ vim +'PlugInstall --sync' +qa > /dev/null
 sudo -E apt-get install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 sudo -E apt-get install -y powerline-fonts
-sudo -E apt-get install -y zsh-completions
 sudo chsh -s $(which zsh) $USER
 dos2unix .zshrc
 git clone https://github.com/zplug/zplug ~/.zplug
