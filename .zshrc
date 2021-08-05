@@ -149,8 +149,8 @@ fi
 source ~/.zplug/init.zsh
 
 # fzf bindings
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh || source /usr/share/doc/fzf/examples/key-bindings.zsh
+[[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh || source /usr/share/doc/fzf/examples/completion.zsh
 
 # fasd enabling
 eval "$(fasd --init auto)"
